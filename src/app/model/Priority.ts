@@ -1,0 +1,16 @@
+/**
+ * Category class.
+ */
+export class Priority {
+
+  readonly id: number;
+  title: string;
+  color: string;
+
+
+  constructor(id: number, title: string, color: string) {
+    this.id = id;
+    this.title = title;
+    this.color = color;
+  }
+}
