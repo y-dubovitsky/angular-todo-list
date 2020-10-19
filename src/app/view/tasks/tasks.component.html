@@ -1,0 +1,22 @@
+<div class="col-lg-6 col-md-12">
+  <div class="card">
+    <div class="card-body table-responsive">
+      <table class="table table-hover">
+        <thead class="text-warning">
+          <th>ID</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Priority</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks">
+            <td>{{task.id}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.category.title}}</td>
+            <td>{{task.priority.title}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

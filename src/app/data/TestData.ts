@@ -9,11 +9,11 @@ export class TestData {
 
   static categories: Category[] = [
     {id: 1, title: 'Work'},
-    {id: 2, title: 'Go for a walk'},
-    {id: 3, title: 'Sleep'},
-    {id: 4, title: 'Eat'},
-    {id: 5, title: 'Play computer games'},
-    {id: 6, title: 'Sex with alive woman'},
+    {id: 2, title: 'Shop'},
+    {id: 3, title: 'Eat'},
+    {id: 4, title: 'Music'},
+    {id: 5, title: 'Friends'},
+    {id: 6, title: 'Other'},
   ];
 
   static priority: Priority[] = [
@@ -37,12 +37,12 @@ export class TestData {
       category: TestData.categories[3],
       completed: false,
       date: new Date(),
-      title: 'C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" run start --scripts-prepend-node-path=auto'
+      title: 'Hello my friend'
     },
     {
       id: 3,
-      priority: TestData.priority[3],
-      category: TestData.categories[3],
+      priority: TestData.priority[2],
+      category: TestData.categories[2],
       completed: false,
       date: new Date(),
       title: '> ng serve'
@@ -50,18 +50,24 @@ export class TestData {
     {
       id: 4,
       priority: TestData.priority[1],
-      category: TestData.categories[2],
+      category: TestData.categories[1],
       completed: false,
       date: new Date(),
-      title: 'chunk {polyfills} polyfills.js'
-    },
-    {
+      title: '> ng serve'
+    },    {
       id: 5,
       priority: TestData.priority[1],
-      category: TestData.categories[5],
+      category: TestData.categories[1],
       completed: false,
       date: new Date(),
-      title: 'open your browser on http://localhost:4200/'
-    }
+      title: '> ng serve'
+    },    {
+      id: 6,
+      priority: TestData.priority[1],
+      category: TestData.categories[1],
+      completed: false,
+      date: new Date(),
+      title: '> ng serve'
+    },
   ];
 }
