@@ -12,6 +12,9 @@ export class CategoriesComponent implements OnInit {
 
   categories: Category[];
 
+  // * Текущая категория
+  selectedCategory: Category;
+
   constructor(
     private taskService: TaskService,
     private categoryService: CategoryService
@@ -22,6 +25,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   showTasksByCategory(category: Category) {
+    this.selectedCategory = category;
     this.taskService.fillTaskByCategories(category);
   }
 }

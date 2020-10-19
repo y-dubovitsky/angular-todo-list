@@ -86,6 +86,10 @@ export class TestData {
       completed: false,
       date: new Date(1989, 7, 25),
       title: ' src/app/view/tasks/tasks.component.ts:20:35 - error TS2339'
+    },
+    {
+      id: 9,
+      title: ' src/app/view/tasks/tasks.component.ts:20:35 - error TS2339'
     }
   ];
 }

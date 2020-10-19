@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesComponent } from './view/categories/categories.component';
 import { TasksComponent } from './view/tasks/tasks.component';
+import { DatePipeComponent } from './view/date-pipe/date-pipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
-    TasksComponent
+    TasksComponent,
+    DatePipeComponent
   ],
   imports: [
     BrowserModule,

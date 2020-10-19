@@ -3,19 +3,23 @@
     <div class="card-body table-responsive">
       <table class="table table-hover">
         <thead class="text-warning">
+          <th>#</th>
           <th>ID</th>
           <th>Title</th>
           <th>Category</th>
           <th>Priority</th>
           <th>Date</th>
+          <th>App-date-pipe</th>
         </thead>
         <tbody>
-          <tr *ngFor="let task of tasks">
+          <tr *ngFor="let task of tasks; let i = index">
+            <td>{{i + 1}}</td>
             <td>{{task.id}}</td>
             <td>{{task.title}}</td>
-            <td>{{task.category.title}}</td>
-            <td>{{task.priority.title}}</td>
-            <td>{{task.date.toDateString()}}</td>
+            <td>{{task.category != null ? task.category.title : 'no category'}}</td>
+            <td>{{task.priority ? task.priority.title : 'no priority'}}</td>
+            <td>{{task.date ? (task.date | date : 'medium') : 'no date'}}</td>
+            <app-date-pipe></app-date-pipe>
           </tr>
         </tbody>
       </table>
