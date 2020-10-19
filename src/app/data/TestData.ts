@@ -27,9 +27,9 @@ export class TestData {
       id: 1,
       priority: TestData.priority[1],
       category: TestData.categories[2],
-      completed: false,
+      completed: true,
       date: new Date('1955-3-14'),
-      title: 'Dobavili fil\'tratsiyu zadach po kategoriyam.'
+      title: 'Sign contract for "What are conference organizers afraid of?'
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ export class TestData {
       category: TestData.categories[3],
       completed: false,
       date: new Date(),
-      title: 'Hello my friend'
+      title: 'Lines From Great Russian Literature? Or E-mails From My Boss?'
     },
     {
       id: 3,

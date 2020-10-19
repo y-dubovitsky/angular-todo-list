@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CategoriesComponent } from './view/categories/categories.component';
-import { TasksComponent } from './view/tasks/tasks.component';
-import { DatePipeComponent } from './view/date-pipe/date-pipe.component';
+import { CategoriesComponent } from './component/categories/categories.component';
+import { TasksComponent } from './component/tasks/tasks.component';
+import { DatePipeComponent } from './component/date-pipe/date-pipe.component';
 
 @NgModule({
   declarations: [
