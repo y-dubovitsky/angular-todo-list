@@ -5,6 +5,7 @@ import {Category} from './Category';
  * Task class.
  */
 export class Task {
+
   readonly id: number;
   title: string;
   completed: boolean;

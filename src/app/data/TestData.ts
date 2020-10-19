@@ -70,6 +70,22 @@ export class TestData {
       completed: false,
       date: new Date(1955, 3, 15),
       title: 'Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/'
+    },
+    {
+      id: 7,
+      priority: TestData.priority[1],
+      category: TestData.categories[5],
+      completed: false,
+      date: new Date(1955, 3, 15),
+      title: 'Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/'
+    },
+    {
+      id: 8,
+      priority: TestData.priority[2],
+      category: TestData.categories[1],
+      completed: false,
+      date: new Date(1989, 7, 25),
+      title: ' src/app/view/tasks/tasks.component.ts:20:35 - error TS2339'
     }
   ];
 }
