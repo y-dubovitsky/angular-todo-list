@@ -3,7 +3,7 @@ import {Priority} from '../model/Priority';
 import {Task} from '../model/Task';
 
 /**
- * Class with test data.
+ * Class with STATIC test data.
  */
 export class TestData {
 
@@ -28,8 +28,8 @@ export class TestData {
       priority: TestData.priority[1],
       category: TestData.categories[2],
       completed: false,
-      date: new Date(),
-      title: 'Hop hay la la lay'
+      date: new Date('1955-3-14'),
+      title: 'Dobavili fil\'tratsiyu zadach po kategoriyam.'
     },
     {
       id: 2,
@@ -45,29 +45,31 @@ export class TestData {
       category: TestData.categories[2],
       completed: false,
       date: new Date(),
-      title: '> ng serve'
+      title: 'chunk {main} main.js, main.js.map (main) 1.38 MB [initial] [rendered]'
     },
     {
       id: 4,
       priority: TestData.priority[1],
       category: TestData.categories[1],
       completed: false,
-      date: new Date(),
-      title: '> ng serve'
-    },    {
+      date: new Date(2020, 5, 27),
+      title: 'Date: 2020-10-19T12:49:34.959Z - Hash: 283ed2e5466681f9aeaf'
+    },
+    {
       id: 5,
       priority: TestData.priority[1],
       category: TestData.categories[1],
       completed: false,
-      date: new Date(),
-      title: '> ng serve'
-    },    {
+      date: new Date(1947, 7, 15),
+      title: 'open your browser on http://localhost:4200/'
+    },
+    {
       id: 6,
       priority: TestData.priority[1],
       category: TestData.categories[1],
       completed: false,
-      date: new Date(),
-      title: '> ng serve'
-    },
+      date: new Date(1955, 3, 15),
+      title: 'Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/'
+    }
   ];
 }

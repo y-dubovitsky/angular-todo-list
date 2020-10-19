@@ -7,6 +7,7 @@
           <th>Title</th>
           <th>Category</th>
           <th>Priority</th>
+          <th>Date</th>
         </thead>
         <tbody>
           <tr *ngFor="let task of tasks">
@@ -14,6 +15,7 @@
             <td>{{task.title}}</td>
             <td>{{task.category.title}}</td>
             <td>{{task.priority.title}}</td>
+            <td>{{task.date.toDateString()}}</td>
           </tr>
         </tbody>
       </table>

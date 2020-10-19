@@ -1,3 +1,6 @@
+/**
+ * Category entity
+ */
 export class Category {
 
   readonly id: number;
