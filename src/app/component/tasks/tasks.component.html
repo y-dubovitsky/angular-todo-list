@@ -33,9 +33,9 @@
             </td>
             <td>{{task.id}}</td>
             <td>{{task.title}}</td>
-            <td>{{task.category != null ? task.category.title : 'no category'}}</td>
-            <td>{{task.priority ? task.priority.title : 'no priority'}}</td>
-            <td>{{task.date ? (task.date | date : 'medium') : 'no date'}}</td>
+            <td [class.no-value]="task.category == null">{{task.category != null ? task.category.title : 'no category'}}</td>
+            <td [class.no-value]="task.priority == null">{{task.priority ? task.priority.title : 'no priority'}}</td>
+            <td [class.no-value]="task.date == null">{{task.date ? (task.date | date : 'medium') : 'no date'}}</td>
             <app-date-pipe></app-date-pipe>
           </tr>
         </tbody>
