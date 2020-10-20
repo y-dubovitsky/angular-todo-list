@@ -5,7 +5,7 @@ import {Task} from '../../model/Task';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  // styleUrls: ['./tasks.component.css']
+  styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
 
@@ -15,5 +15,12 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.tasksSubject.subscribe(tasks => this.tasks = tasks);
+  }
+
+  /**
+   * This method changes the completion status of the task.
+   */
+  switchTaskCompleted(task: Task) {
+    task.completed = !task.completed;
   }
 }
