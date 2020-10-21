@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TaskService} from '../../service/task.service';
 import {Category} from '../../model/Category';
 import {CategoryService} from '../../service/category.service';
@@ -8,8 +8,9 @@ import {CategoryService} from '../../service/category.service';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent {
 
+  @Input()
   categories: Category[];
 
   // * Текущая категория
@@ -17,14 +18,9 @@ export class CategoriesComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
-    private categoryService: CategoryService
     ) { }
 
-  ngOnInit(): void {
-    this.categoryService.getAllCategories().subscribe(categories => this.categories = categories);
-  }
-
-  showTasksByCategory(category: Category) {
+  showTasksByCategory(category: Category): void {
     this.selectedCategory = category;
     this.taskService.fillTaskByCategories(category);
   }

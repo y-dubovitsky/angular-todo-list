@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {TaskService} from '../../service/task.service';
 import {Task} from '../../model/Task';
 import {MatTableDataSource} from '@angular/material/table';
@@ -12,7 +12,8 @@ import {MatSort} from '@angular/material/sort';
 })
 export class TasksComponent implements OnInit, AfterViewInit {
 
-  tasks: Task[];
+  @Input() //! Вместо this.taskService.getAllTasks().subscribe(tasks => this.tasks = tasks);
+  private tasks: Task[];
 
   displayedColumns: string[] = ['#', 'color', 'id', 'title', 'priority', 'date', 'check'];
   dataSource: MatTableDataSource<Task>;
@@ -20,16 +21,15 @@ export class TasksComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private taskService: TaskService) {  }
+  constructor() {  }
 
   ngOnInit(): void {
-    this.taskService.getAllTasks().subscribe(tasks => this.tasks = tasks);
     this.dataSource = new MatTableDataSource();
 
     this.refreshTable();
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -37,11 +37,11 @@ export class TasksComponent implements OnInit, AfterViewInit {
   /**
    * This method changes the completion status of the task.
    */
-  switchTaskCompleted(task: Task) {
+  switchTaskCompleted(task: Task): void {
     task.completed = !task.completed;
   }
 
-  private refreshTable() {
+  private refreshTable(): void {
     this.dataSource.data = this.tasks;
   }
 }
