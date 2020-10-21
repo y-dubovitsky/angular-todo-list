@@ -3,6 +3,7 @@ import {TaskService} from '../../service/task.service';
 import {Task} from '../../model/Task';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-tasks',
@@ -17,6 +18,7 @@ export class TasksComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Task>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private taskService: TaskService) {  }
 
@@ -29,6 +31,7 @@ export class TasksComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   /**
