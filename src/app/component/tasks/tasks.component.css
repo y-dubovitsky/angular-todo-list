@@ -2,7 +2,9 @@
   text-decoration: line-through;
   color: gainsboro;
 }
-
 .no-value {
   color: #9A9A9A;
+}
+table {
+  width: 100%;
 }

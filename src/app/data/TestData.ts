@@ -89,7 +89,27 @@ export class TestData {
     },
     {
       id: 9,
-      title: ' src/app/view/tasks/tasks.component.ts:20:35 - error TS2339'
+      priority: TestData.priority[0],
+      category: TestData.categories[1],
+      completed: false,
+      date: new Date(1989, 7, 25),
+      title: ' : Compiled successfully.'
+    },
+    {
+      id: 10,
+      priority: TestData.priority[2],
+      category: TestData.categories[3],
+      completed: false,
+      date: new Date(),
+      title: 'Lines From Great Russian Literature? Or E-mails From My Boss?'
+    },
+    {
+      id: 11,
+      priority: TestData.priority[2],
+      category: TestData.categories[3],
+      completed: false,
+      date: new Date(),
+      title: 'Lines From Great Russian Literature? Or E-mails From My Boss?'
     }
   ];
 }

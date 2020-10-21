@@ -6,6 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriesComponent } from './component/categories/categories.component';
 import { TasksComponent } from './component/tasks/tasks.component';
 import { DatePipeComponent } from './component/date-pipe/date-pipe.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DatePipeComponent } from './component/date-pipe/date-pipe.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
