@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {Category} from '../model/Category';
 import {TestData} from '../data/TestData';
 import {Task} from '../model/Task';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {TaskDaoImpl} from '../dao/impl/TaskDaoImpl';
 
 /**
  * This component is responsible for data processing
@@ -15,10 +16,12 @@ export class TaskService {
   // ? Оборачиваем объект Таски[] и теперь мы за ними наблюдаем
   tasksSubject = new BehaviorSubject<Task[]>(TestData.tasks);
 
+  private taskDao = new TaskDaoImpl();
+
   constructor() { }
 
-  fillTasks() {
-    this.tasksSubject.next(TestData.tasks); // ? Каким образом будет понятно, что мы получили новое значение?
+  getAllTasks(): Observable<Task[]> {
+    return this.taskDao.getAll(); // ? Каким образом будет понятно, что мы получили новое значение?
   }
 
   /**

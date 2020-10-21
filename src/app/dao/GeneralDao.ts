@@ -1,6 +1,8 @@
 /**
  * Basic interface for all DAO interfaces/
  */
+import {Observable} from 'rxjs';
+
 export interface GeneralDao<T> {
 
   add(T): T;
@@ -11,5 +13,5 @@ export interface GeneralDao<T> {
 
   update(T): T;
 
-  getAll(): T[];
+  getAll(): Observable<T[]>;
 }

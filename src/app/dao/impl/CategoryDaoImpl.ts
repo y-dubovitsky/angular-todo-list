@@ -1,6 +1,7 @@
 import {CategoryDao} from '../CategoryDao';
 import {Category} from '../../model/Category';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {TestData} from '../../data/TestData';
 
 export class CategoryDaoImpl implements CategoryDao {
 
@@ -15,8 +16,8 @@ export class CategoryDaoImpl implements CategoryDao {
     return undefined;
   }
 
-  getAll(): Category[] {
-    return [];
+  getAll(): Observable<Category[]> {
+    return of(TestData.categories);
   }
 
   search(title: string): Observable<Category[]> {

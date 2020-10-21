@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import {Category} from '../model/Category';
 import {TestData} from '../data/TestData';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
+import {CategoryDaoImpl} from '../dao/impl/CategoryDaoImpl';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  categorySubject = new BehaviorSubject<Category[]>(TestData.categories);
+  private categoryDao = new CategoryDaoImpl();
 
   constructor() { }
+
+  getAllCategories(): Observable<Category[]> {
+    return this.categoryDao.getAll();
+  }
 
 }
