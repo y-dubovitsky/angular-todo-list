@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'angular-to-do-list';
   tasks: Task[];
   categories: Category[];
+  selectedCategory: Category;
 
   constructor(
     private taskService: TaskService,
@@ -25,4 +26,20 @@ export class AppComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe(categories => this.categories = categories);
   }
 
+  onSelectCategory($event: Category): void { //! $event - параметр, который был проброшен от потомка к родителю
+    this.selectedCategory = $event;
+
+    this.taskService.searchTasks(
+      this.selectedCategory,
+      null,
+      null,
+      null
+    ).subscribe((tasks: Task[]) => {
+      this.tasks = tasks;
+    });
+  }
+
+  onUpdateTasks($event: Task): void {
+    console.log($event);
+  }
 }

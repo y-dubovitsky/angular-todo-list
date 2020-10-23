@@ -1,9 +1,13 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {TaskService} from '../../service/task.service';
 import {Task} from '../../model/Task';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {Category} from '../../model/Category';
+import {Priority} from '../../model/Priority';
+import {Observable} from 'rxjs';
+import {TaskDao} from '../../dao/TaskDao';
 
 @Component({
   selector: 'app-tasks',
@@ -12,14 +16,13 @@ import {MatSort} from '@angular/material/sort';
 })
 export class TasksComponent implements OnInit, AfterViewInit {
 
-  @Input() //! Вместо this.taskService.getAllTasks().subscribe(tasks => this.tasks = tasks);
-  private tasks: Task[];
-
+  tasks: Task[];
   displayedColumns: string[] = ['#', 'color', 'id', 'title', 'priority', 'date', 'check'];
   dataSource: MatTableDataSource<Task>;
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  @Output()
+  updateTask = new EventEmitter<Task>();
 
   constructor() {  }
 
@@ -34,6 +37,12 @@ export class TasksComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+  @Input('tasksFromAppComponent') //! Вместо this.taskService.getAllTasks().subscribe(tasks => this.tasks = tasks);
+  private set setTasks(tasks: Task[]) {
+    this.tasks = tasks;
+    this.refreshTable();
+  }
+
   /**
    * This method changes the completion status of the task.
    */
@@ -42,6 +51,11 @@ export class TasksComponent implements OnInit, AfterViewInit {
   }
 
   private refreshTable(): void {
+    if (!this.dataSource) { return; } //* Checking
     this.dataSource.data = this.tasks;
+  }
+
+  onClickTask(task: Task): void {
+    this.updateTask.emit(task); //! emit - как я понимаю, выполняет проброс
   }
 }

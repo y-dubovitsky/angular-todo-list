@@ -25,8 +25,14 @@ export class TaskDaoImpl implements TaskDao{
     return undefined;
   }
 
-  search(category: Category, text: string): Observable<Task> {
-    return undefined;
+  search(category: Category, text: string): Observable<Task[]> {
+    let allTasks = TestData.tasks;
+
+    if (category != null) {
+      allTasks = allTasks.filter(todo => todo.category === category);
+    }
+
+    return of(allTasks); //?
   }
 
   update(T): Task {

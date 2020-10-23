@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {TaskService} from '../../service/task.service';
 import {Category} from '../../model/Category';
 import {CategoryService} from '../../service/category.service';
@@ -16,12 +16,18 @@ export class CategoriesComponent {
   // * Текущая категория
   selectedCategory: Category;
 
+  @Output()
+  selectCategory = new EventEmitter<Category>();
+
   constructor(
     private taskService: TaskService,
     ) { }
 
   showTasksByCategory(category: Category): void {
+    if (this.selectedCategory === category) {
+      return;
+    }
     this.selectedCategory = category;
-    this.taskService.fillTaskByCategories(category);
+    this.selectCategory.emit(this.selectedCategory);
   }
 }
